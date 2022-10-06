@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+</head>
+<body>
+    <div class="main">
+        <div class="register">
+            <form action="/register" method="POST">
+                <h2>Register</h2>
+                <div class="text_box">
+                    <label for="first_name">First name:</label>
+                    <input type="text" name="first_name" id="first_name">
+                </div>
+                <div class="text_box">
+                    <label for="last_name">Last name:</label>
+                    <input type="text" name="last_name" id="last_name">
+                </div>
+                <div class="text_box">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="text_box">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="text_box">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" name="confirm_password" id="confirm_password">
+                </div>
+                {% with messages = get_flashed_messages(category_filter=["register"]) %}     <!-- declare a variable called messages -->
+                    {% if messages %}                            <!-- check if there are any messages -->
+                        {% for message in messages %}            <!-- loop through the messages -->
+                            <p class="error">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <input type="submit" value="Register" class="offset-btn-1">
+            </form>
+        </div>
+        <div class="login_user">
+            <form action="/login" method="POST">
+                <h2 class="login">Login</h2>
+                <div class="text_box">
+                    <label for="email">Email:</label>
+                    <input type="email" name="email" id="email">
+                </div>
+                <div class="text_box">
+                    <label for="password">Password:</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                {% with messages = get_flashed_messages(category_filter=["login"]) %}     <!-- declare a variable called messages -->
+                    {% if messages %}                            <!-- check if there are any messages -->
+                        {% for message in messages %}            <!-- loop through the messages -->
+                            <p class="error">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                <input type="submit" value="Login" class="offset-btn-2">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

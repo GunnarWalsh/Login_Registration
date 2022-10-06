@@ -1,0 +1,40 @@
+.main{
+    display: flex;
+    justify-content: space-evenly;
+}
+.text_box{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.register, .login_user{
+    background-color:  #4f5965;
+    color: white;
+    padding: 50px;
+}
+h2{
+    color: blue;
+}
+.login{
+    color: green;
+}
+
+.offset-btn-1{
+    background-color: blue;
+    color: white;
+}
+
+.offset-btn-2{
+    background-color: green;
+    color: white;
+}
+
+input{
+    margin: 10px 0px;
+}
+
+.error{
+    background-color: lightpink;
+    color: red;
+}
